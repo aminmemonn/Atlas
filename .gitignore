@@ -1,0 +1,23 @@
+# Xcode
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+xcuserdata/
+*.xcworkspace/xcuserdata/
+DerivedData/
+build/
+*.xcuserstate
+
+# XcodeGen generates the project; keep it out of source control
+Atlas.xcodeproj/
+
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# macOS
+.DS_Store
+
+# Secrets — never commit
+*.mobileprovision
+*.p12
+*.cer

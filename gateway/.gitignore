@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.env
+# Persisted gateway state (contains the pairing token — never commit)
+.atlas-gateway.json
+atlas-pairing.png
+*.log

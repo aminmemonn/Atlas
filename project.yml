@@ -1,0 +1,126 @@
+name: Atlas
+options:
+  bundleIdPrefix: com.atlas
+  deploymentTarget:
+    iOS: "26.0"
+    watchOS: "26.0"
+  createIntermediateGroups: true
+  groupSortPosition: top
+
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    SWIFT_STRICT_CONCURRENCY: complete
+    DEVELOPMENT_TEAM: ""
+    CODE_SIGN_STYLE: Automatic
+    MARKETING_VERSION: "1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    ENABLE_USER_SCRIPT_SANDBOXING: YES
+    GENERATE_INFOPLIST_FILE: NO
+
+targets:
+  Atlas:
+    type: application
+    platform: iOS
+    sources:
+      - path: Atlas
+      - path: Shared
+    info:
+      path: Atlas/Resources/Info.plist
+      properties:
+        CFBundleDisplayName: Atlas
+        UILaunchScreen:
+          UIColorName: Surface
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+        UIBackgroundModes:
+          - audio
+        NSSupportsLiveActivities: true
+        # The app's only cryptography is standard TLS (wss://), which is exempt.
+        # Declaring this skips the export-compliance prompt on every TestFlight upload.
+        ITSAppUsesNonExemptEncryption: false
+        CFBundleURLTypes:
+          - CFBundleURLName: com.atlas.agent
+            CFBundleURLSchemes:
+              - atlas
+        NSCameraUsageDescription: "Atlas uses the camera to scan your gateway pairing code and to share images with your agent when you choose."
+        NSMicrophoneUsageDescription: "Atlas uses the microphone for voice conversations with your agent."
+        NSSpeechRecognitionUsageDescription: "Atlas transcribes your speech on device so you can talk to your agent."
+        NSLocationWhenInUseUsageDescription: "Atlas shares your location with your agent only when you grant access, to answer location-aware questions."
+        NSPhotoLibraryUsageDescription: "Atlas lets your agent reference photos you explicitly choose."
+        NSContactsUsageDescription: "Atlas lets your agent look up people you mention to help draft messages or schedule."
+        NSCalendarsFullAccessUsageDescription: "Atlas lets your agent read events and propose new ones for your approval."
+        NSRemindersFullAccessUsageDescription: "Atlas lets your agent create and complete reminders on your behalf."
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.atlas.agent
+        INFOPLIST_KEY_UILaunchScreen_Generation: NO
+        CODE_SIGN_ENTITLEMENTS: Atlas/Resources/Atlas.entitlements
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        TARGETED_DEVICE_FAMILY: "1"
+    dependencies:
+      - target: AtlasWidgets
+        embed: true
+      - target: AtlasWatch
+        embed: true
+
+  AtlasWidgets:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: AtlasWidgets
+      - path: Shared
+    info:
+      path: AtlasWidgets/Info.plist
+      properties:
+        CFBundleDisplayName: Atlas
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.atlas.agent.widgets
+        CODE_SIGN_ENTITLEMENTS: AtlasWidgets/AtlasWidgets.entitlements
+        TARGETED_DEVICE_FAMILY: "1"
+
+  AtlasWatch:
+    type: application
+    platform: watchOS
+    sources:
+      - path: AtlasWatch
+      - path: Shared
+    info:
+      path: AtlasWatch/Info.plist
+      properties:
+        CFBundleDisplayName: Atlas
+        WKApplication: true
+        WKCompanionAppBundleIdentifier: com.atlas.agent
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.atlas.agent.watchkitapp
+        WKCompanionAppBundleIdentifier: com.atlas.agent
+        TARGETED_DEVICE_FAMILY: "4"
+
+  AtlasTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: AtlasTests
+    dependencies:
+      - target: Atlas
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.atlas.agent.tests
+
+schemes:
+  Atlas:
+    build:
+      targets:
+        Atlas: all
+        AtlasWidgets: all
+        AtlasWatch: all
+    run:
+      config: Debug
+    test:
+      targets:
+        - AtlasTests

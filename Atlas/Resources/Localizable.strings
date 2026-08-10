@@ -1,0 +1,46 @@
+/* Atlas — base localization */
+
+"app.name" = "Atlas";
+"app.tagline" = "Your personal AI agent.";
+
+/* Onboarding */
+"onboarding.welcome.title" = "Atlas";
+"onboarding.getStarted" = "Get Started";
+"onboarding.pair.title" = "Pair your gateway";
+"onboarding.pair.manual" = "Enter setup code manually";
+"onboarding.ready.title" = "You're all set";
+"onboarding.enter" = "Enter Atlas";
+
+/* Chat */
+"chat.placeholder" = "Message Atlas…";
+"chat.empty.title" = "How can I help?";
+
+/* Talk */
+"talk.title" = "Talk";
+"talk.listening" = "Listening…";
+"talk.thinking" = "Thinking…";
+"talk.speaking" = "Atlas is speaking";
+
+/* Approvals */
+"approvals.title" = "Approvals";
+"approvals.approve" = "Approve";
+"approvals.deny" = "Deny";
+"approvals.empty.title" = "All clear";
+"risk.low" = "Low";
+"risk.medium" = "Medium";
+"risk.high" = "High";
+
+/* Tasks */
+"tasks.title" = "Tasks";
+"tasks.new" = "New Task";
+"tasks.create" = "Create Task";
+
+/* Settings */
+"settings.title" = "Settings";
+"settings.gateway" = "Gateway";
+"settings.model" = "Model";
+"settings.capabilities" = "Capabilities";
+"settings.privacy" = "Privacy";
+"settings.about" = "About";
+"settings.disconnect" = "Disconnect";
+"settings.clearHistory" = "Clear local history";

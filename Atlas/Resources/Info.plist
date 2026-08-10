@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>Atlas</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.atlas.agent</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>atlas</string>
+			</array>
+		</dict>
+	</array>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
+	<key>NSCalendarsFullAccessUsageDescription</key>
+	<string>Atlas lets your agent read events and propose new ones for your approval.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Atlas uses the camera to scan your gateway pairing code and to share images with your agent when you choose.</string>
+	<key>NSContactsUsageDescription</key>
+	<string>Atlas lets your agent look up people you mention to help draft messages or schedule.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Atlas shares your location with your agent only when you grant access, to answer location-aware questions.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Atlas uses the microphone for voice conversations with your agent.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Atlas lets your agent reference photos you explicitly choose.</string>
+	<key>NSRemindersFullAccessUsageDescription</key>
+	<string>Atlas lets your agent create and complete reminders on your behalf.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Atlas transcribes your speech on device so you can talk to your agent.</string>
+	<key>NSSupportsLiveActivities</key>
+	<true/>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>audio</string>
+	</array>
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UIColorName</key>
+		<string>Surface</string>
+	</dict>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+</dict>
+</plist>
